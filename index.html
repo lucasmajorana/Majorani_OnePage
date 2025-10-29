@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Majorani — Sitio Oficial</title>
+  <meta name="description" content="Página oficial de nuestros productos. Especificaciones, beneficios, y contacto." />
+  <meta property="og:title" content="Industria Majorani" />
+  <meta property="og:description" content="Diseño moderno, información clara, especificaciones y contacto." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="/images/og-image.jpg" />
+  <link rel="icon" href="/favicon.ico" />
+  <style>
+    :root{
+      --bg: #0d0f12;
+      --surface: #14171c;
+      --text: #e6e7ea;
+      --muted: #a8afb9;
+      --brand: #4da3ff;
+      --ok: #43d19e;         
+      --danger: #ff6b6b;
+      --ring: rgba(77,163,255,.35);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      background: var(--bg);
+      color: var(--text);
+      font: 16px/1.5 ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+    }
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; height:auto; display:block}
+    .container{width:min(1120px, 92vw); margin:0 auto}
+    .btn{
+      display:inline-flex; align-items:center; gap:.5rem; 
+      font-weight:600; padding:.9rem 1.2rem; border-radius:1rem; 
+      background: var(--brand); color:#07101a; border:1px solid transparent;
+      box-shadow: 0 8px 30px rgba(77,163,255,.22);
+    }
+    .btn:hover{filter:brightness(1.05)}
+    .btn.ghost{background:transparent; color:var(--text); border-color:#2a3240}
+    .tag{display:inline-block; font-size:.78rem; letter-spacing:.05em; text-transform:uppercase; color:var(--muted); border:1px solid #2a3240; padding:.35rem .6rem; border-radius:999px}
+    .badge{display:inline-flex; align-items:center; gap:.45rem; background:#0b1220; border:1px solid #24324a; padding:.35rem .6rem; border-radius:999px; color:#b7c6dc; font-size:.8rem}
+    header{
+      position:sticky; top:0; z-index:50; backdrop-filter: saturate(140%) blur(10px);
+      background: color-mix(in oklab, var(--bg) 82%, transparent);
+      border-bottom:1px solid #1e232d;
+    }
+    .nav{display:flex; align-items:center; justify-content:space-between; padding:.9rem 0}
+    .logo{display:flex; align-items:center; gap:.65rem; font-weight:700}
+    .logo-dot{width:.65rem; height:.65rem; background:var(--brand); border-radius:50%}
+    .nav a{opacity:.85}
+    .nav a:hover{opacity:1}
+    .nav-links{display:flex; gap:1rem}
+
+    /* Hero */
+    .hero{position:relative; padding:7rem 0 4.5rem; overflow:hidden}
+    .hero .grid{display:grid; gap:2rem; grid-template-columns: 1.15fr .85fr}
+    .hero h1{font-size: clamp(2rem, 3.4vw, 3rem); line-height:1.1; margin:.5rem 0 1rem}
+    .hero p.lead{font-size: clamp(1rem, 1.6vw, 1.15rem); color:var(--muted)}
+    .hero-cta{display:flex; gap:.8rem; flex-wrap:wrap; margin-top:1.2rem}
+    .hero-card{background:linear-gradient(180deg, #12171f, #0e141d); border:1px solid #1f2a3a; border-radius:1.4rem; padding:1.2rem}
+    .hero-specs{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:.8rem}
+    .hero-specs .item{background:#0b1220; border:1px solid #223049; border-radius:.9rem; padding:.9rem}
+    .hero-specs .k{font-size:.78rem; color:#93a3ba}
+    .hero-specs .v{font-weight:700}
+
+    /* Secciones */
+    section{padding:4rem 0; border-top:1px solid #161b23}
+    h2{font-size: clamp(1.35rem, 2.2vw, 2rem); margin:0 0 .8rem}
+    .subtle{color:var(--muted)}
+
+    /* Lista de beneficios */
+    .features{display:grid; gap:1rem; grid-template-columns: repeat(3, minmax(0, 1fr))}
+    .feature{background: var(--surface); border:1px solid #202632; border-radius:1.2rem; padding:1.1rem}
+    .feature h3{font-size:1rem; margin:.2rem 0 .4rem}
+
+    /* Especificaciones */
+    .specs{display:grid; grid-template-columns: 1fr 1fr; gap:1rem}
+    .table{border:1px solid #222a38; border-radius:1.2rem; overflow:hidden}
+    .table header{all:unset; display:flex; justify-content:space-between; align-items:center; padding:.9rem 1rem; background:#0e141d; border-bottom:1px solid #1f2a30}
+    .row{display:grid; grid-template-columns: 1.2fr 1fr; gap:.6rem; padding:.7rem 1rem; border-top:1px dashed #1e2634}
+    .row:first-child{border-top:none}
+    .k{color:#9aa7b9}
+
+    /* Proveedores */
+    .vendor{display:flex; align-items:center; gap:.9rem; text-decoration:none}
+    .vendor-logo{width:48px; height:48px; border-radius:.75rem; background:#0b1220; border:1px solid #223049; object-fit:contain; padding:.5rem}
+    .vendor .handle{color:var(--muted); font-size:.9rem; margin:.1rem 0 0}
+    .vendor h3{margin:0; font-size:1rem}
+    .vendor:hover{border-color:#2a3650}
+
+
+    /* CTA */
+    .cta{display:flex; align-items:center; justify-content:space-between; gap:1rem; background:linear-gradient(180deg, #111722, #0c121b); border:1px solid #223049; border-radius:1.4rem; padding:1.2rem}
+
+    /* Footer */
+    footer{padding:2.5rem 0 4rem; color:#8e96a3}
+    footer .grid{display:grid; grid-template-columns: 1fr auto; align-items:center}
+
+    /* Responsivo */
+    @media (max-width: 920px){
+      .hero .grid{grid-template-columns:1fr}
+      .features{grid-template-columns:1fr 1fr}
+      .specs{grid-template-columns:1fr}
+      .cta{flex-direction:column; align-items:flex-start}
+      .nav-links{display:none}
+    }
+    @media (max-width: 560px){
+      .features{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container nav">
+      <a class="logo" href="#home" aria-label="Inicio">
+        <span class="logo-dot"></span>
+        <span>Industria Majorani</span>
+      </a>
+      <nav class="nav-links" aria-label="Principal">
+        <a href="#beneficios">Beneficios</a>
+        <a href="#especificaciones">Especificaciones</a>
+        <a href="#proveedores">Proveedores</a>
+        <a href="#descargas">Descargas</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="home">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container grid">
+        <div>
+          <span class="badge" aria-hidden="true">Nuevo — Disponible</span>
+          <h1>Trucks profesionales para quienes valoran la precisión y la confiabilidad.</h1>
+          <p class="lead">Fabricados en inyección de aluminio con un diseño innovador, pensado para satisfacer las necesidades del patinador técnico.</p>
+          <div class="hero-cta">
+            <a class="btn" href="#contacto">Consultar</a>
+            <a class="btn ghost" href="#especificaciones">Ver especificaciones</a>
+          </div>
+        </div>
+        <aside class="hero-card">
+          <div style="display:flex; justify-content:space-between; align-items:center; gap:1rem; margin-bottom:.8rem">
+            <strong>Ficha rápida</strong>
+            <span class="tag">Datos clave</span>
+          </div>
+          <div class="hero-specs">
+            <div class="item"><div class="k">Material</div><div class="v">Inyección de Aluminio</div></div>
+            <div class="item"><div class="k">Superficie-Grind</div><div class="v">3 pulgadas</div></div>
+            <div class="item"><div class="k">Compatibilidad</div><div class="v">Artístico - Quad Skate</div></div>
+            <div class="item"><div class="k">Desgaste</div><div class="v">Geometria Fast-Grind</div></div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- BENEFICIOS -->
+    <section id="beneficios">
+      <div class="container">
+        <h2>Beneficios</h2>
+        <p class="subtle">Puntos concretos que agregan un valor real al desempeño del patinador.</p>
+        <div class="features">
+          <article class="feature">
+            <h3>Precisión consistente</h3>
+            <p>Geometría optimizada para estabilidad transversal y control en uso intensivo.</p>
+          </article>
+          <article class="feature">
+            <h3>Durabilidad comprobada</h3>
+            <p>Proceso de fabricación con estándares ISO. Control de calidad por lote.</p>
+          </article>
+          <article class="feature">
+            <h3>Integración Argentina</h3>
+            <p>Compatibilidad directa con planchas de patinaje artístico comunes en el país.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ESPECIFICACIONES -->
+    <section id="especificaciones">
+      <div class="container">
+        <h2>Especificaciones técnicas</h2>
+        <p class="subtle">Medidas, materiales, tolerancias y compatibilidades del truck.</p>
+        <div class="specs">
+          <div class="table" role="table" aria-label="Tabla de especificaciones">
+            <header>
+              <strong>Parámetros</strong>
+            </header>
+            <div class="row"><div class="k">Construcción</div><div>Inyección de aluminio</div></div>
+            <div class="row"><div class="k">Tratamiento</div><div>Granallado</div></div>
+            <div class="row"><div class="k">Peso</div><div>145g</div></div>
+            <div class="row"><div class="k">Superficie-Grind</div><div>3 pulgadas</div></div>
+            <div class="row"><div class="k">Compatibilidad</div><div>Artístico - Quad Skate</div></div>
+            <div class="row"><div class="k">Ejes</div><div>Acero trefilado</div></div>
+            <div class="row"><div class="k">Garantía</div><div>6 meses</div></div>
+            <div class="row"><div class="k">Tolerancia a rotura</div><div>En pruebas</div></div>
+          </div>
+          <div class="table" role="table" aria-label="Compatibilidades">
+            <header>
+              <strong>Compatibilidades</strong>
+            </header>
+            <div class="row"><div class="k">Hex Plate</div><div>V2 — Total</div></div>
+            <div class="row"><div class="k">Sunlite</div><div>V2 — Total</div></div>
+            <div class="row"><div class="k">Roll Line</div><div>V1 — Con Kingpin Majorani</div></div>
+            <div class="row"><div class="k">Royal</div><div>V1 — Con Kingpin Majorani</div></div>
+            <div class="row"><div class="k">TMG</div><div>V1 — Con Kingpin Majorani</div></div>
+            <div class="row"><div class="k">Brunny</div><div>V2 — En proceso</div></div>
+            <div class="row"><div class="k">Bonanno</div><div>V2 — En proceso</div></div>
+            <div class="row"><div class="k">Chuffed</div><div>V2 — En proceso</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Proveedores -->
+
+    <section id="proveedores">
+    <div class="container">
+        <h2>Vendedores</h2>
+        <p class="subtle">Distribuidores oficiales y socios comerciales.</p>
+
+        <div class="features">
+        <!-- Tarjeta 1 -->
+        <a class="feature vendor" href="https://www.instagram.com/covenrollerskate/" target="_blank" rel="noopener">
+            <img class="vendor-logo" src="160eb576-bf20-4b67-b216-1ffaafc1466d (1).png" alt="Logo Coven" />
+            <div>
+            <h3>Coven Rollerskate Shop</h3>
+            <p class="handle">Italia - Trieste</p>
+            </div>
+        </a>
+
+        <!-- Tarjeta 2 -->
+        <a class="feature vendor" href="https://www.instagram.com/las3vias/" target="_blank" rel="noopener">
+            <img class="vendor-logo" src="sdsd (1).png" alt="Logo L3V" />
+            <div>
+            <h3>L3V</h3>
+            <p class="handle">Argentina - Rosario</p>
+            </div>
+        </a>
+
+        <!-- Tarjeta 3 -->
+        <a class="feature vendor" href="https://www.instagram.com/ehpark.skatepark/" target="_blank" rel="noopener">
+            <img class="vendor-logo" src="ChatGPT Image 4 sept 2025, 16_32_59.png" alt="Logo Ehpark" />
+            <div>
+            <h3>Eh?Park Skatepark</h3>
+            <p class="handle">Argentina - Buenos Aires</p>
+            </div>
+        </a>
+        </div>
+    </div>
+    </section>
+
+
+    <!-- DESCARGAS / RECURSOS -->
+    <section id="descargas">
+      <div class="container">
+        <h2>Descargas</h2>
+        <p class="subtle">Manuales, hojas técnicas y media kits.</p>
+        <div class="features">
+          <a class="feature" href="#">
+            <h3>Ficha técnica (PDF)</h3>
+            <p>Dimensiones, materiales y tolerancias.</p>
+          </a>
+          <a class="feature" href="#">
+            <h3>Manual de instalación (PDF)</h3>
+            <p>Pasos, torque y seguridad.</p>
+          </a>
+          <a class="feature" href="#">
+            <h3>Press / Media kit (ZIP)</h3>
+            <p>Logo, fotos y pautas de marca.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="container">
+      <div class="cta">
+        <div>
+          <h2>¿Listo para consultar o distribuir?</h2>
+          <p class="subtle">Escribinos y te respondemos a la brevedad con precios y disponibilidad.</p>
+        </div>
+        <div class="hero-cta">
+          <a class="btn" href="#contacto">Contacto</a>
+          <a class="btn ghost" href="#beneficios">Ver beneficios</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto">
+      <div class="container">
+        <h2>Contacto</h2>
+        <p class="subtle">Completá el formulario o escribinos por email.</p>
+        <form class="feature" style="display:grid; gap:.8rem; background:var(--surface); padding:1rem; border-radius:1.2rem; border:1px solid #202632" action="https://formspree.io/f/your-id" method="POST">
+          <label>Nombre<input required name="name" placeholder="Tu nombre" style="width:100%; margin-top:.35rem; padding:.8rem; border-radius:.7rem; background:#0b1220; border:1px solid #223049; color:var(--text)" /></label>
+          <label>Email<input required name="email" type="email" placeholder="tu@email.com" style="width:100%; margin-top:.35rem; padding:.8rem; border-radius:.7rem; background:#0b1220; border:1px solid #223049; color:var(--text)" /></label>
+          <label>Mensaje<textarea required name="message" rows="5" placeholder="Escribí tu consulta" style="width:100%; margin-top:.35rem; padding:.8rem; border-radius:.7rem; background:#0b1220; border:1px solid #223049; color:var(--text)"></textarea></label>
+          <button class="btn" type="submit">Enviar</button>
+          <p class="subtle" style="margin:0">O escribí a: <a href="info.majorani@gmail.com">info.majorani@gmail.com</a></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container grid">
+      <small>© <span id="y"></span> Industria Majorani. Todos los derechos reservados.</small>
+    </div>
+  </footer>
+
+  <script>
+    // Año dinámico
+    document.getElementById('y').textContent = new Date().getFullYear();
+    // Enlaces suaves (mejora UX sin dependencias)
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', e=>{
+        const id = a.getAttribute('href');
+        const el = document.querySelector(id);
+        if(el){ e.preventDefault(); el.scrollIntoView({behavior:'smooth', block:'start'}); }
+      });
+    });
+  </script>
+</body>
+</html>
