@@ -111,6 +111,40 @@
     @media (max-width: 560px){
       .features{grid-template-columns:1fr}
     }
+
+    /* Contenedor con fondo */
+    .with-bg { position: relative; overflow: hidden; isolation: isolate; }
+
+    /* Capa de imagen */
+    .with-bg::before{
+      content:"";
+      position:absolute; inset:0;
+      background-position:center;
+      background-size:cover;
+      background-repeat:no-repeat;
+      z-index:-2;               /* detrás del contenido */
+      transform: scale(1.02);   /* evita bordes vacíos al hacer cover */
+      filter: saturate(.9) contrast(1.05);
+      opacity:.22;              /* ajusta visibilidad del fondo */
+    }
+
+    /* Capa de oscurecido para mejor contraste de texto */
+    .with-bg::after{
+      content:"";
+      position:absolute; inset:0; z-index:-1;
+      background:
+        radial-gradient(120% 80% at 50% 20%, transparent 0 55%, rgba(0,0,0,.35) 100%),
+        linear-gradient(180deg, rgba(0,0,0,.25), rgba(0,0,0,.4));
+    }
+
+    /* Variantes por sección (cambiá las rutas según tus archivos) */
+    .bg-ehpark::before{ background-image: url("ChatGPT Image 4 sept 2025, 16_32_59.png"); }
+    .bg-coven::before { background-image: url("160eb576-bf20-4b67-b216-1ffaafc1466d (1).png"); }
+    .bg-l3v::before   { background-image: url("sdsd (1).png"); }
+
+    /* Opcional: versión más sutil para secciones con muchas tarjetas */
+    .bg-subtle::after{ background: linear-gradient(180deg, rgba(0,0,0,.18), rgba(0,0,0,.28)); }
+
   </style>
 </head>
 
@@ -162,7 +196,7 @@
     </section>
 
     <!-- BENEFICIOS -->
-    <section id="beneficios">
+    <section id="beneficios" class="with-bg bg-truck1">
       <div class="container">
         <h2>Beneficios</h2>
         <p class="subtle">Buscamos aportar un valor real al desempeño del patinador mejorando e innovando en puntos concretos.</p>
