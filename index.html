@@ -98,7 +98,12 @@
 
     /* Footer */
     footer{padding:2.5rem 0 4rem; color:#8e96a3}
-    footer .grid{display:grid; grid-template-columns: 1fr auto; align-items:center}
+    footer .grid{
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+    }
 
     /* Responsivo */
     @media (max-width: 920px){
@@ -145,6 +150,21 @@
     /* Opcional: versión más sutil para secciones con muchas tarjetas */
     .bg-subtle::after{ background: linear-gradient(180deg, rgba(0,0,0,.18), rgba(0,0,0,.28)); }
 
+    /* Contacto */
+    .contact-card {
+      display: flex;
+      justify-content: center;
+    }
+
+    .contact-cta {
+      margin-top: 0;
+      justify-content: center;
+    }
+
+    .contact-cta .btn {
+      width: 100%;
+      justify-content: center;
+    }
   </style>
 </head>
 
@@ -371,48 +391,40 @@
             <a class="feature" href="#">
               <h3>Trucks Majorani (PDF)</h3>
               <p>Dimensiones, materiales y tolerancias.</p>
+              <p>¡Próximamente!</p>
             </a>
             <a class="feature" href="#">
-              <h3>Kingpin Set (PDF)</h3>
-              <p>Pasos, torque y seguridad.</p>
+              <h3>Fugazzesions 2025</h3>
+              <p>Fotos por @lascronicasdetania</p>
+              <p>¡Próximamente!</p>
             </a>
             <a class="feature" href="https://drive.google.com/drive/folders/1UhHVQ0US50yFmQvRnj2Hemi7oW1ZPFTQ?usp=drive_link" target="_blank">
               <h3>Majorani SHOWCASE 2025</h3>
               <p>Fotos por @gigisph y @veraicon.jpg</p>
+              <p>¡Listas para descargar!</p>
             </a>
           </div>
         </div>
       </section>
 
       <!-- CTA -->
-      <section class="container">
+      <section id="contacto" class="container">
         <div class="cta">
           <div>
             <h2>¿Listo para consultar o distribuir?</h2>
             <p class="subtle">Escribinos y te respondemos a la brevedad con precios y disponibilidad.</p>
           </div>
           <div class="hero-cta">
-            <a class="btn" href="#contacto">Contacto</a>
-            <a class="btn ghost" href="#beneficios">Ver beneficios</a>
+            <a class="btn"
+              href="https://wa.me/5491122773433?text=Hola%20Majorani%2C%20quiero%20consultar%20por..."
+              target="_blank" rel="noopener">WhatsApp</a>
+            <a class="btn ghost"
+              href="https://www.instagram.com/majorani_/"
+              target="_blank" rel="noopener">Instagram</a>
           </div>
         </div>
       </section>
     </div>
-
-    <!-- CONTACTO -->
-    <section id="contacto">
-      <div class="container">
-        <h2>Contacto</h2>
-        <p class="subtle">Completá el formulario o escribinos por email.</p>
-        <form class="feature" style="display:grid; gap:.8rem; background:var(--surface); padding:1rem; border-radius:1.2rem; border:1px solid #202632" action="https://formspree.io/f/your-id" method="POST">
-          <label>Nombre<input required name="name" placeholder="Tu nombre" style="width:100%; margin-top:.35rem; padding:.8rem; border-radius:.7rem; background:#0b1220; border:1px solid #223049; color:var(--text)" /></label>
-          <label>Email<input required name="email" type="email" placeholder="tu@email.com" style="width:100%; margin-top:.35rem; padding:.8rem; border-radius:.7rem; background:#0b1220; border:1px solid #223049; color:var(--text)" /></label>
-          <label>Mensaje<textarea required name="message" rows="5" placeholder="Escribí tu consulta" style="width:100%; margin-top:.35rem; padding:.8rem; border-radius:.7rem; background:#0b1220; border:1px solid #223049; color:var(--text)"></textarea></label>
-          <button class="btn" type="submit">Enviar</button>
-          <p class="subtle" style="margin:0">O escribí a: <a href="info.majorani@gmail.com">info.majorani@gmail.com</a></p>
-        </form>
-      </div>
-    </section>
   </main>
 
   <footer>
