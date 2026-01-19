@@ -85,13 +85,36 @@
     .row:first-child{border-top:none}
     .k{color:#9aa7b9}
 
+    .spec-full {
+      grid-column: 1 / -1; /* ocupa las dos columnas */
+    }
+    .spec-full h3 {
+      margin-top: 0;
+      margin-bottom: 12px;
+      font-size: 18px;
+      letter-spacing: 0.08em;
+    }
+    .spec-full p {
+      margin: 0;
+      font-size: 14px;
+      line-height: 1.6;
+      color: #d0d0d0;
+    }
+    .spec-card {
+      background: rgba(20, 20, 20, 0.6);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 14px;
+      padding: 24px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    }
+
     /* Proveedores */
     .vendor{display:flex; align-items:center; gap:.9rem; text-decoration:none}
     .vendor-logo{width:48px; height:48px; border-radius:.75rem; background:#0b1220; border:1px solid #223049; object-fit:contain; padding:.5rem}
     .vendor .handle{color:var(--muted); font-size:.9rem; margin:.1rem 0 0}
     .vendor h3{margin:0; font-size:1rem}
     .vendor:hover{border-color:#2a3650}
-
 
     /* CTA */
     .cta{display:flex; align-items:center; justify-content:space-between; gap:1rem; background:linear-gradient(180deg, #111722, #0c121b); border:1px solid #223049; border-radius:1.4rem; padding:1.2rem}
@@ -115,6 +138,15 @@
     }
     @media (max-width: 560px){
       .features{grid-template-columns:1fr}
+    }
+    @media (max-width: 768px) {
+      .specs-container {
+        grid-template-columns: 1fr;
+      }
+
+      .spec-full {
+        grid-column: auto;
+      }
     }
 
     /* Contenedor con fondo */
@@ -274,10 +306,10 @@
               </header>
               <div class="row"><div class="k">Construcción</div><div>Inyección de aluminio</div></div>
               <div class="row"><div class="k">Tratamiento</div><div>Granallado</div></div>
-              <div class="row"><div class="k">Peso</div><div>145g</div></div>
+              <div class="row"><div class="k">Peso</div><div>150g</div></div>
               <div class="row"><div class="k">Superficie-Grind</div><div>3 pulgadas</div></div>
               <div class="row"><div class="k">Compatibilidad</div><div>Artístico - Quad Skate</div></div>
-              <div class="row"><div class="k">Ejes</div><div>Acero trefilado</div></div>
+              <div class="row"><div class="k">Ejes</div><div>Acero calibrado</div></div>
               <div class="row"><div class="k">Garantía</div><div>6 meses</div></div>
               <div class="row"><div class="k">Stress Test</div><div>670kg</div></div>
             </div>
@@ -285,19 +317,40 @@
               <header>
                 <strong>Compatibilidades</strong>
               </header>
-              <div class="row"><div class="k">Hex Plate</div><div>V2 — Compatible</div></div>
+              <div class="row"><div class="k">MSG - Hex Plate</div><div>V2 — Compatible</div></div>
               <div class="row"><div class="k">Sunlite</div><div>V2 — Compatible</div></div>
-              <div class="row"><div class="k">Roll Line</div><div>V1 — Compatible</div></div>
-              <div class="row"><div class="k">Royal Metal</div><div>V1 — Compatible</div></div>
-              <div class="row"><div class="k">Royal Fibra</div><div>V1 — Ajustable</div></div>
-              <div class="row"><div class="k">TMG Flip</div><div>V1 — Ajustable</div></div>
-              <div class="row"><div class="k">Brunny</div><div>V2 — Compatible</div></div>
-              <div class="row"><div class="k">Bonanno</div><div>V2 — En proceso</div></div>
+              <div class="row"><div class="k">Dragon Plate</div><div>V2 — Compatible</div></div>
               <div class="row"><div class="k">Chuffed</div><div>V2 — En pruebas</div></div>
               <div class="row"><div class="k">Avanti</div><div>V2 — Compatible</div></div>
               <div class="row"><div class="k">Marvel Aluminum</div><div>V2 — Compatible</div></div>
+
+              <div class="row"><div class="k">Roll Line - Variant</div><div>V1 — Compatible</div></div>
+              <div class="row"><div class="k">Roll Line - Mirage</div><div>V1 — Compatible</div></div>
+              <div class="row"><div class="k">Roll Line - Mistral</div><div>V1 — Compatible</div></div>
+              <div class="row"><div class="k">Roll Line - Mariner</div><div>V1 — Compatible</div></div>
+              
+              <div class="row"><div class="k">Royal - Astor</div><div>V1 — Compatible</div></div>
+              <div class="row"><div class="k">Royal - Nexus</div><div>V1 — Compatible</div></div>
+              <div class="row"><div class="k">Royal - Dom</div><div>V1 — Compatible</div></div>
+              <div class="row"><div class="k">Royal Fibra</div><div>V1 — Ajustable</div></div>
+
+              <div class="row"><div class="k">TMG - Flip</div><div>V1 — Ajustable</div></div>
+              <div class="row"><div class="k">TMG - One</div><div>V1 — Ajustable</div></div>
+              <div class="row"><div class="k">TMG - Kids</div><div>V1 — En pruebas</div></div>
+
+              <div class="row"><div class="k">Bonanno</div><div>V2 — En pruebas</div></div>
               <div class="row"><div class="k">Powerdyne Nylon</div><div>V2 — En pruebas</div></div>
             </div>
+        <div class="spec-card spec-full">
+          <h3>Notas técnicas</h3>
+          <p>
+            Nuestros trucks tienen una amplia compatibilidad gracias a que innovamos con nuestros kits de suspensiones y kingpins.<br>
+            Si el truck dice "compatible", se afirma que cuenta con un kit de compatibilidad que lo hace 100% compatible.
+            Si en cambio, dice "ajustable", se afirma que todavía no existe un kit de compatibilidad, pero se puede adaptar
+            modificando suspensiones como se hace con trucks importados en planchas de artístico comunes al día de hoy.<br>
+            Si el truck dice "en pruebas", quiere decir que todavía estamos probándolo para poder afirmar si es 100% compatible o no.
+          </p>
+        </div>      
           </div>
         </div>
       </section>
@@ -350,8 +403,9 @@
       <div class="container grid">
         <div>
           <span class="badge" aria-hidden="true">Nuevo — Disponible</span>
-          <h1>Conseguí compatibilidad sin comprometer tus componentes de patin artístico.</h1>
-          <p class="lead">Kingpins fabricados en acero trefilado, diseñados para otorgar compatibilidad al 100% con Trucks Majorani e importados.</p>
+          <h1>Conseguí compatibilidad sin comprometer tus componentes.</h1>
+          <p class="lead">Kingpins fabricados en acero trefilado, diseñados para otorgar compatibilidad al 100% con Trucks Majorani
+             e importados. Tienen el diámetro exacto para poner tus sliders de quad importados</p>
           <div class="hero-cta">
             <a class="btn" href="#contacto">Consultar</a>
             <a class="btn ghost" href="#">¡Combo completo!</a>
@@ -517,131 +571,231 @@
       });
     });
 
-    // Guía según plancha
-    const plateData = {
-      rollline: {
-        title: "Roll-Line",
-        tag: "V1",
-        trucks: "Trucks Majorani V1",
-        bushings: "Bujes estándar",
-        kingpins: "Sí",
-        notes: "Requiere Kingpin Majorani."
-      },
-      royal_metal: {
-        title: "Royal Metal",
-        tag: "V1",
-        trucks: "Trucks Majorani V1",
-        bushings: "Bujes estándar",
-        kingpins: "Sí",
-        notes: "Requiere Kingpin Majorani."
-      },
-      royal_fibra: {
-        title: "Royal (fibra)",
-        tag: "V1",
-        trucks: "Trucks Majorani V1",
-        bushings: "Bujes estándar",
-        kingpins: "No",
-        notes: "Usa bujes estándar sin reemplazar kingpin."
-      },
-      brunny: {
-        title: "Brunny",
-        tag: "V2",
-        trucks: "Trucks Majorani V2",
-        bushings: "4 bujes 10mm (abajo) + 4 bujes 10mm (arriba)",
-        kingpins: "No",
-        notes: "Setup V2 con bujes 10/10."
-      },
+  // =========================
+  // Guía según plancha
+  // =========================
+  const plateData = {
+    msg_hex_plate: {
+      title: "MSG - Hex Plate",
+      tag: "V2 — Compatible",
+      trucks: "Trucks Majorani V2",
+      bushings: "4 bujes 10mm (abajo) + 4 bujes 12mm (arriba)",
+      kingpins: "No",
+      notes: "Setup V2 10/12."
+    },
+    sunlite: {
+      title: "Sunlite",
+      tag: "V2 — Compatible",
+      trucks: "Trucks Majorani V2",
+      bushings: "4 bujes 10mm (abajo) + 4 bujes 12mm (arriba)",
+      kingpins: "No",
+      notes: "Setup V2 10/12."
+    },
+    dragon_plate: {
+      title: "Dragon Plate",
+      tag: "V2 — Compatible",
+      trucks: "Trucks Majorani V2",
+      bushings: "4 bujes 10mm (abajo) + 4 bujes 12mm (arriba)",
+      kingpins: "No",
+      notes: "Setup V2 10/12."
+    },
+    chuffed: {
+      title: "Chuffed",
+      tag: "V2 — En pruebas",
+      trucks: "Trucks Majorani V2",
+      bushings: "4 bujes 10mm (abajo) + 4 bujes 12mm (arriba)",
+      kingpins: "No",
+      notes: "Compatibilidad en pruebas (setup V2 10/12)."
+    },
+    avanti: {
+      title: "Avanti",
+      tag: "V2 — Compatible",
+      trucks: "Trucks Majorani V2",
+      bushings: "4 bujes 10mm (abajo) + 4 bujes 12mm (arriba)",
+      kingpins: "No",
+      notes: "Setup V2 10/12."
+    },
+    marvel_aluminum: {
+      title: "Marvel Aluminum",
+      tag: "V2 — Compatible",
+      trucks: "Trucks Majorani V2",
+      bushings: "4 bujes 10mm (abajo) + 4 bujes 12mm (arriba)",
+      kingpins: "No",
+      notes: "Setup V2 10/12."
+    },
 
-      // Grupo V2 10/12
-      hexplate: {
-        title: "Hex Plate",
-        tag: "V2",
-        trucks: "Trucks Majorani V2",
-        bushings: "4 bujes 10mm (abajo) + 4 bujes 12mm (arriba)",
-        kingpins: "No",
-        notes: "Setup V2 10/12."
-      },
-      sunlite: {
-        title: "Sunlite",
-        tag: "V2",
-        trucks: "Trucks Majorani V2",
-        bushings: "4 bujes 10mm (abajo) + 4 bujes 12mm (arriba)",
-        kingpins: "No",
-        notes: "Setup V2 10/12."
-      },
-      chuffed: {
-        title: "Chuffed",
-        tag: "V2",
-        trucks: "Trucks Majorani V2",
-        bushings: "4 bujes 10mm (abajo) + 4 bujes 12mm (arriba)",
-        kingpins: "No",
-        notes: "Setup V2 10/12."
-      },
-      avanti: {
-        title: "Avanti",
-        tag: "V2",
-        trucks: "Trucks Majorani V2",
-        bushings: "4 bujes 10mm (abajo) + 4 bujes 12mm (arriba)",
-        kingpins: "No",
-        notes: "Setup V2 10/12."
-      },
-      marvel_aluminum: {
-        title: "Marvel Aluminum",
-        tag: "V2",
-        trucks: "Trucks Majorani V2",
-        bushings: "4 bujes 10mm (abajo) + 4 bujes 12mm (arriba)",
-        kingpins: "No",
-        notes: "Setup V2 10/12."
-      },
-      powerdyne_nylon: {
-        title: "Powerdyne Nylon",
-        tag: "V2",
-        trucks: "Trucks Majorani V2",
-        bushings: "4 bujes 10mm (abajo) + 4 bujes 12mm (arriba)",
-        kingpins: "No (setup V2)",
-        notes: "Compatibilidad en pruebas"
-      },
+    roll_line_variant: {
+      title: "Roll Line - Variant",
+      tag: "V1 — Compatible",
+      trucks: "Trucks Majorani V1",
+      bushings: "Bujes estándar",
+      kingpins: "Sí",
+      notes: "Requiere Kingpin Majorani."
+    },
+    roll_line_mirage: {
+      title: "Roll Line - Mirage",
+      tag: "V1 — Compatible",
+      trucks: "Trucks Majorani V1",
+      bushings: "Bujes estándar",
+      kingpins: "Sí",
+      notes: "Requiere Kingpin Majorani."
+    },
+    roll_line_mistral: {
+      title: "Roll Line - Mistral",
+      tag: "V1 — Compatible",
+      trucks: "Trucks Majorani V1",
+      bushings: "Bujes estándar",
+      kingpins: "Sí",
+      notes: "Requiere Kingpin Majorani."
+    },
+    roll_line_mariner: {
+      title: "Roll Line - Mariner",
+      tag: "V1 — Compatible",
+      trucks: "Trucks Majorani V1",
+      bushings: "Bujes estándar",
+      kingpins: "Sí",
+      notes: "Requiere Kingpin Majorani."
+    },
 
-      tmg_flip: {
-        title: "TMG Flip",
-        tag: "V2",
-        trucks: "Trucks Majorani V2",
-        bushings: "Bujes estándar",
-        kingpins: "No (setup V2)",
-        notes: "Compatibilidad en pruebas"
-      },
+    royal_astor: {
+      title: "Royal - Astor",
+      tag: "V1 — Compatible",
+      trucks: "Trucks Majorani V1",
+      bushings: "Bujes estándar",
+      kingpins: "Sí",
+      notes: "Requiere Kingpin Majorani."
+    },
+    royal_nexus: {
+      title: "Royal - Nexus",
+      tag: "V1 — Compatible",
+      trucks: "Trucks Majorani V1",
+      bushings: "Bujes estándar",
+      kingpins: "Sí",
+      notes: "Requiere Kingpin Majorani."
+    },
+    royal_dom: {
+      title: "Royal - Dom",
+      tag: "V1 — Compatible",
+      trucks: "Trucks Majorani V1",
+      bushings: "Bujes estándar",
+      kingpins: "Sí",
+      notes: "Requiere Kingpin Majorani."
+    },
 
-      chaya: {
-        title: "Chaya",
-        tag: "No compatible",
-        trucks: "No tenemos compatibilidad",
-        bushings: "—",
-        kingpins: "—",
-        notes: "Por ahora no hay trucks compatibles para Chaya."
-      }
-    };
+    royal_fibra: {
+      title: "Royal Fibra",
+      tag: "V1 — Ajustable",
+      trucks: "Trucks Majorani V1",
+      bushings: "Bujes estándar",
+      kingpins: "No",
+      notes: "Usa bujes estándar sin reemplazar kingpin."
+    },
 
-    const $select = document.getElementById("plateSelect");
-    const $title  = document.getElementById("plateTitle");
-    const $tag    = document.getElementById("plateTag");
-    const $tr     = document.getElementById("recTrucks");
-    const $bu     = document.getElementById("recBushings");
-    const $kp     = document.getElementById("recKingpins");
-    const $no     = document.getElementById("recNotes");
+    tmg_flip: {
+      title: "TMG - Flip",
+      tag: "V1 — Ajustable",
+      trucks: "Trucks Majorani V1",
+      bushings: "Bujes estándar",
+      kingpins: "No / depende setup",
+      notes: "Ajustable según configuración."
+    },
+    tmg_one: {
+      title: "TMG - One",
+      tag: "V1 — Ajustable",
+      trucks: "Trucks Majorani V1",
+      bushings: "Bujes estándar",
+      kingpins: "No / depende setup",
+      notes: "Ajustable según configuración."
+    },
 
-    function renderPlate(key){
-      const d = plateData[key];
-      if(!d) return;
-      $title.textContent = `Recomendación — ${d.title}`;
-      $tag.textContent = d.tag;
-      $tr.textContent = d.trucks;
-      $bu.textContent = d.bushings;
-      $kp.textContent = d.kingpins;
-      $no.textContent = d.notes;
+    tmg_kids: {
+      title: "TMG - Kids",
+      tag: "V1 — En pruebas",
+      trucks: "Trucks Majorani V1",
+      bushings: "Bujes estándar",
+      kingpins: "Por confirmar",
+      notes: "Compatibilidad en pruebas."
+    },
+
+    bonanno: {
+      title: "Bonanno",
+      tag: "V2 — En pruebas",
+      trucks: "Trucks Majorani V2",
+      bushings: "4 bujes 10mm (abajo) + 4 bujes 12mm (arriba)",
+      kingpins: "No",
+      notes: "Compatibilidad en pruebas (setup V2)."
+    },
+
+    powerdyne_nylon: {
+      title: "Powerdyne Nylon",
+      tag: "V2 — En pruebas",
+      trucks: "Trucks Majorani V2",
+      bushings: "4 bujes 10mm (abajo) + 4 bujes 12mm (arriba)",
+      kingpins: "No",
+      notes: "Compatibilidad en pruebas (setup V2 10/12)."
     }
+  };
 
-    $select.addEventListener("change", () => renderPlate($select.value));
-    renderPlate($select.value);
+  // =========================
+  // Fuerza el mismo orden que la imagen
+  // =========================
+  const plateOrder = [
+    ["msg_hex_plate", "MSG - Hex Plate"],
+    ["sunlite", "Sunlite"],
+    ["dragon_plate", "Dragon Plate"],
+    ["chuffed", "Chuffed"],
+    ["avanti", "Avanti"],
+    ["marvel_aluminum", "Marvel Aluminum"],
+    ["roll_line_variant", "Roll Line - Variant"],
+    ["roll_line_mirage", "Roll Line - Mirage"],
+    ["roll_line_mistral", "Roll Line - Mistral"],
+    ["roll_line_mariner", "Roll Line - Mariner"],
+    ["royal_astor", "Royal - Astor"],
+    ["royal_nexus", "Royal - Nexus"],
+    ["royal_dom", "Royal - Dom"],
+    ["royal_fibra", "Royal Fibra"],
+    ["tmg_flip", "TMG - Flip"],
+    ["tmg_one", "TMG - One"],
+    ["tmg_kids", "TMG - Kids"],
+    ["bonanno", "Bonanno"],
+    ["powerdyne_nylon", "Powerdyne Nylon"]
+  ];
+
+  // =========================
+  // Reconstruye el <select>
+  // =========================
+  const $select = document.getElementById("plateSelect");
+  $select.innerHTML = plateOrder
+    .map(([key, label]) => `<option value="${key}">${label}</option>`)
+    .join("");
+
+  // =========================
+  // Bindings UI existentes
+  // =========================
+  const $title  = document.getElementById("plateTitle");
+  const $tag    = document.getElementById("plateTag");
+  const $tr     = document.getElementById("recTrucks");
+  const $bu     = document.getElementById("recBushings");
+  const $kp     = document.getElementById("recKingpins");
+  const $no     = document.getElementById("recNotes");
+
+  function renderPlate(key){
+    const d = plateData[key];
+    if(!d) return;
+    $title.textContent = `Recomendación — ${d.title}`;
+    $tag.textContent   = d.tag;
+    $tr.textContent    = d.trucks;
+    $bu.textContent    = d.bushings;
+    $kp.textContent    = d.kingpins;
+    $no.textContent    = d.notes;
+  }
+
+  $select.addEventListener("change", () => renderPlate($select.value));
+
+  // Selección inicial segura
+  $select.value = plateOrder[0][0];
+  renderPlate($select.value);
+
   </script>
 </body>
 </html>
