@@ -332,7 +332,7 @@
               <div class="row"><div class="k">Royal - Astor</div><div>V1 — Compatible</div></div>
               <div class="row"><div class="k">Royal - Nexus</div><div>V1 — Compatible</div></div>
               <div class="row"><div class="k">Royal - Dom</div><div>V1 — Compatible</div></div>
-              <div class="row"><div class="k">Royal Fibra</div><div>V1 — Ajustable</div></div>
+              <div class="row"><div class="k">Royal Fibra</div><div>V1 — En pruebas</div></div>
 
               <div class="row"><div class="k">TMG - Flip</div><div>V1 — Ajustable</div></div>
               <div class="row"><div class="k">TMG - One</div><div>V1 — Ajustable</div></div>
@@ -560,9 +560,10 @@
   </footer>
 
   <script>
+
     // Año dinámico
     document.getElementById('y').textContent = new Date().getFullYear();
-    // Enlaces suaves (mejora UX sin dependencias)
+
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
       a.addEventListener('click', e=>{
         const id = a.getAttribute('href');
@@ -571,9 +572,8 @@
       });
     });
 
-  // =========================
   // Guía según plancha
-  // =========================
+
   const plateData = {
     msg_hex_plate: {
       title: "MSG - Hex Plate",
@@ -595,9 +595,9 @@
       title: "Dragon Plate",
       tag: "V2 — Compatible",
       trucks: "Trucks Majorani V2",
-      bushings: "4 bujes 10mm (abajo) + 4 bujes 12mm (arriba)",
+      bushings: "8 bujes de 10mm",
       kingpins: "No",
-      notes: "Setup V2 10/12."
+      notes: "Setup V2 10/10."
     },
     chuffed: {
       title: "Chuffed",
@@ -686,9 +686,9 @@
       title: "Royal Fibra",
       tag: "V1 — Ajustable",
       trucks: "Trucks Majorani V1",
-      bushings: "Bujes estándar",
+      bushings: "Bujes modificados",
       kingpins: "No",
-      notes: "Usa bujes estándar sin reemplazar kingpin."
+      notes: "Todavía esta en pruebas, modificación tradicional."
     },
 
     tmg_flip: {
@@ -696,7 +696,7 @@
       tag: "V1 — Ajustable",
       trucks: "Trucks Majorani V1",
       bushings: "Bujes estándar",
-      kingpins: "No / depende setup",
+      kingpins: "No",
       notes: "Ajustable según configuración."
     },
     tmg_one: {
@@ -704,17 +704,17 @@
       tag: "V1 — Ajustable",
       trucks: "Trucks Majorani V1",
       bushings: "Bujes estándar",
-      kingpins: "No / depende setup",
+      kingpins: "No",
       notes: "Ajustable según configuración."
     },
 
     tmg_kids: {
       title: "TMG - Kids",
-      tag: "V1 — En pruebas",
+      tag: "V2 — En pruebas",
       trucks: "Trucks Majorani V1",
       bushings: "Bujes estándar",
-      kingpins: "Por confirmar",
-      notes: "Compatibilidad en pruebas."
+      kingpins: "No",
+      notes: "Todavía esta en pruebas, modificación tradicional."
     },
 
     bonanno: {
@@ -723,7 +723,7 @@
       trucks: "Trucks Majorani V2",
       bushings: "4 bujes 10mm (abajo) + 4 bujes 12mm (arriba)",
       kingpins: "No",
-      notes: "Compatibilidad en pruebas (setup V2)."
+      notes: "Todavía no es compatible."
     },
 
     powerdyne_nylon: {
@@ -736,9 +736,6 @@
     }
   };
 
-  // =========================
-  // Fuerza el mismo orden que la imagen
-  // =========================
   const plateOrder = [
     ["msg_hex_plate", "MSG - Hex Plate"],
     ["sunlite", "Sunlite"],
@@ -761,17 +758,11 @@
     ["powerdyne_nylon", "Powerdyne Nylon"]
   ];
 
-  // =========================
-  // Reconstruye el <select>
-  // =========================
   const $select = document.getElementById("plateSelect");
   $select.innerHTML = plateOrder
     .map(([key, label]) => `<option value="${key}">${label}</option>`)
     .join("");
 
-  // =========================
-  // Bindings UI existentes
-  // =========================
   const $title  = document.getElementById("plateTitle");
   const $tag    = document.getElementById("plateTag");
   const $tr     = document.getElementById("recTrucks");
@@ -792,7 +783,6 @@
 
   $select.addEventListener("change", () => renderPlate($select.value));
 
-  // Selección inicial segura
   $select.value = plateOrder[0][0];
   renderPlate($select.value);
 
